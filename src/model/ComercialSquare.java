@@ -2,22 +2,22 @@ package model;
 
 import java.awt.Point;
 
-public class Comercial extends Square{ // Terreno comercial (Lote/Bens)
+public class ComercialSquare extends Square{ // Terreno comercial (Lote/Bens)
 	private int id; // ID deste Comercial
 	private String name; // Nome do Comercial
-	private float price; // Valor do Comercial
+	private int price; // Valor do Comercial
 	private Player owner; // Dono do Comercial
-	private float fee; // Taxa
-	private boolean statusSold; // Vendido ou não
+	private int fee; // Taxa
+	private boolean sold; // Vendido ou não
 	private Point position; // Posição do Comercial
 	
-	public Comercial(String name, float price, float fee, Point position, int id) {
+	public ComercialSquare(String name, int price, int fee, Point position, int id) {
 		this.name = name;
 		this.id = id; 
 		this.price = price;
 		this.owner = null;
 		this.fee = fee;
-		this.statusSold = false;
+		this.sold = false;
 		this.position = position;
 	}
 
@@ -29,12 +29,12 @@ public class Comercial extends Square{ // Terreno comercial (Lote/Bens)
 		this.owner = owner;
 	}
 
-	public boolean isStatusSold() {
-		return statusSold;
+	public boolean isSold() {
+		return sold;
 	}
 
-	public void setStatusSold(boolean statusSold) {
-		this.statusSold = statusSold;
+	public void setSold(boolean sold) {
+		this.sold = sold;
 	}
 
 	public Point getPosition() {
@@ -53,11 +53,11 @@ public class Comercial extends Square{ // Terreno comercial (Lote/Bens)
 		return name;
 	}
 
-	public float getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public float getFee() {
+	public int getFee() {
 		return fee;
 	}	
 }

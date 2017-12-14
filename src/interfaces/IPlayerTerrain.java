@@ -1,6 +1,9 @@
 package interfaces;
 
+import model.ComercialSquare;
+
 public interface IPlayerTerrain {
-	public boolean payFee(int fee);
-	public void receiveFee(int fee);
+	public int getQtdTerrain();
+	public boolean buyTerrain(ComercialSquare c);
+	public void addTerrain(ComercialSquare c); // Adicionar Terreno as minhas cartas
 }

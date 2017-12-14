@@ -1,5 +1,8 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import interfaces.IPlayerFee;
 import interfaces.IPlayerTerrain;
 
@@ -8,7 +11,7 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 	private int id; // Identificador do Jogador
 	private String name; // Nome do Jogador
 	private Account account;
-	//---
+	private List<ComercialSquare> myComercialSquares;
 	//---
 	private Square positionPlayer; // Em qual Casa o Jogador está
 	//---
@@ -16,16 +19,19 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 	public Player(String name, Account account, Square positionPlayer) {
 		this.name = name;
 		this.account = account;
+		this.myComercialSquares = new ArrayList<>();
 		this.positionPlayer = positionPlayer;
-		
 	}
 	
 	@Override
-	public boolean payFee(int fee) {
-		if(this.account.withdraw(fee) == true){
-			return true;
+	public int payFee(int fee) {
+		if(this.getBalance() >= fee){
+			this.account.withdraw(fee);
+			return fee;
 		}
-		return false;
+		int myBalance = this.account.getBalance(); // Não faz sentido eu retirar dinheiro que não possuo
+		this.account.withdraw(myBalance);
+		return myBalance;
 	}
 
 	@Override
@@ -40,13 +46,17 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 	}
 
 	@Override
-	public boolean buyTerrain() {
+	public boolean buyTerrain(ComercialSquare c) {
+		c.setOwner(this);
+		c.setSold(true);
+		account.withdraw(c.getPrice());
+		addTerrain(c);
 		return false;
 	}
 
 	@Override
-	public void addTerrain() {
-		
+	public void addTerrain(ComercialSquare c) {
+		this.myComercialSquares.add(c);
 	}
 	
 	public float getBalance(){
@@ -71,5 +81,9 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 
 	public Account getAccount() {
 		return account;
+	}
+
+	public List<ComercialSquare> getMyComercialSquares() {
+		return myComercialSquares;
 	}
 }

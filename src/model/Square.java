@@ -7,7 +7,7 @@ import java.util.List;
 import interfaces.IEffectSquare;
 import interfaces.ISquare;
 
-public class Square implements ISquare, IEffectSquare {
+public abstract class Square implements ISquare, IEffectSquare {
 	private int id; // Id da Casa
 	private String name; // Nome da Casa
 	private List<Player> playersInSquare; // Jogadores nesta casa	
