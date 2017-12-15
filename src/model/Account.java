@@ -15,12 +15,14 @@ public class Account implements IAccount {
 	}
 
 	@Override
-	public boolean withdraw(int value) { // OBSERVAÇÃO SERÁ QUE DEVO FAZER A VERIFICAÇÃO DO VALOR AQUI ???????
-		if(this.balance >= value){
-			this.balance -= value;
-			return true;
-		}
-		return false;		
+	public void withdraw(int value) { // OBSERVAÇÃO SERÁ QUE DEVO FAZER A VERIFICAÇÃO DO VALOR AQUI (Resposta: Não, pois agora o banco faz "emprestimos")
+		//ou seja, apenas a prisão e na compra de outros terrenos ou bens, será feita essa verificação
+//		if(this.balance >= value){
+//			this.balance -= value;
+//			return true;
+//		}
+//		return false;	
+		this.balance -= value;
 	}
 
 	public int getBalance() {

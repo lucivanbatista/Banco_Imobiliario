@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +10,6 @@ public abstract class Square implements ISquare, IEffectSquare {
 	private int id; // Id da Casa
 	private String name; // Nome da Casa
 	private List<Player> playersInSquare; // Jogadores nesta casa	
-	private Point position; // X e Y
 	
 	public Square() {
 		this.playersInSquare = new ArrayList<>();
@@ -33,12 +31,6 @@ public abstract class Square implements ISquare, IEffectSquare {
 		destination.addPlayerInSquare(player);
 	}
 
-	@Override
-	public void activateEffect(Player p) { // NÃO IMPLEMENTADO
-		// TODO Auto-generated method stub
-		
-	}
-
 	public int getId() {
 		return id;
 	}
@@ -49,14 +41,6 @@ public abstract class Square implements ISquare, IEffectSquare {
 
 	public String getName() {
 		return name;
-	}
-
-	public Point getPosition() {
-		return position;
-	}
-
-	public void setPosition(Point position) {
-		this.position = position;
 	}
 
 	public List<Player> getPlayersInSquare() {

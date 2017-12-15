@@ -2,13 +2,22 @@ package prints;
 
 import javax.swing.JOptionPane;
 
+import model.Card;
 import model.ComercialSquare;
 import model.Player;
 
 public class Message {
 	
-	public Message() {
-		// TODO Auto-generated constructor stub
+	private static Message uniqueMessage;
+	
+	private Message() {
+	}
+	
+	public static Message getInstance(){
+		if(uniqueMessage == null){
+			uniqueMessage = new Message();
+		}
+		return uniqueMessage;
 	}
 	
 	public int desejaComprarComercialTerrain(){
@@ -47,4 +56,27 @@ public class Message {
 		JOptionPane.showMessageDialog(null, "Não possui dinheiro, Player " + p.getName() + " vai para a Prisão");
 	}
 	
+	public void playerGetOutPrison(Player p){
+		JOptionPane.showMessageDialog(null, p.getName() + " está saindo da prisão");
+	}
+	
+	public void incomeTax(){
+		JOptionPane.showMessageDialog(null, "Que azar, pague 200 para o imposto de Renda");
+	}
+	
+	public void profitsOrDividens(){
+		JOptionPane.showMessageDialog(null, "Parabéns, você ganhou 200 reais!");
+	}
+	
+	public void freeStop(){
+		JOptionPane.showMessageDialog(null, "Parada para descansar um pouco...");
+	}
+	
+	public void matchBonus(){
+		JOptionPane.showMessageDialog(null, "Andar muito requer uma recompensa, ganhe 200 reais!");
+	}
+	
+	public void showMessageProfitOrLost(Card card){
+		JOptionPane.showMessageDialog(null, card.getDescricao() + "; Valor = " + card.getValor());
+	}
 }

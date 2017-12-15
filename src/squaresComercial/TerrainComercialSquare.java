@@ -1,26 +1,24 @@
-package squares;
-
-import java.awt.Point;
+package squaresComercial;
 
 import logic.Vertifies;
 import model.ComercialSquare;
 import model.Player;
 import prints.Message;
 
-public class AssetsComercialSquare extends ComercialSquare{	
+public class TerrainComercialSquare extends ComercialSquare {
 	private Message message;
 	private Vertifies verify;
-
-	public AssetsComercialSquare(String name, int price, int fee, Point position, int id) {
-		super(name, price, fee, position, id);
-		this.message = new Message();
+	
+	public TerrainComercialSquare(String name, int price, int fee, int id) {
+		super(name, price, fee, id);
+		this.message = Message.getInstance();
 		this.verify = new Vertifies();
 	}
-
+	
 	@Override
 	public void activateEffect(Player p) {
 		if(!this.isSold()){ // Caso não esteja vendido, poderá comprar
-			int answerPlayer = message.desejaComprarComercialAssets();
+			int answerPlayer = message.desejaComprarComercialTerrain();
 			if(answerPlayer == 1){
 				if(verify.verifyBalancePlayerToPay(p, this.getPrice())){ // Caso tenha saldo suficiente
 					p.buyTerrain(this);
@@ -33,13 +31,12 @@ public class AssetsComercialSquare extends ComercialSquare{
 			}
 		}else{ // Caso esteja vendido, vem multa (taxa)
 			if(!verify.verifyItsMySquare(p, this)){ // Se não for minha casa...
-				int fee = p.payFee(this.getFee());
-				this.getOwner().receiveFee(fee);
+				p.payFee(this.getFee());
+				this.getOwner().receiveFee(this.getFee());
 				message.playerPagouTaxa(p, getOwner());
 			}else{
 				message.suaCasa();
 			}
 		}
 	}
-
 }

@@ -24,14 +24,14 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 	}
 	
 	@Override
-	public int payFee(int fee) {
-		if(this.getBalance() >= fee){
-			this.account.withdraw(fee);
-			return fee;
-		}
-		int myBalance = this.account.getBalance(); // Não faz sentido eu retirar dinheiro que não possuo
-		this.account.withdraw(myBalance);
-		return myBalance;
+	public void payFee(int fee) {
+		this.account.withdraw(fee); // Agora irá ficar negativo
+//		if(this.getBalance() >= fee){
+//			this.account.withdraw(fee);
+//		}
+//		int myBalance = this.account.getBalance(); // Não faz sentido eu retirar dinheiro que não possuo, MAS mudei de ideia... pensa nos emprestimos kkk
+//		this.account.withdraw(myBalance);
+//		return myBalance;
 	}
 
 	@Override
@@ -46,12 +46,11 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 	}
 
 	@Override
-	public boolean buyTerrain(ComercialSquare c) {
+	public void buyTerrain(ComercialSquare c) {
 		c.setOwner(this);
 		c.setSold(true);
 		account.withdraw(c.getPrice());
 		addTerrain(c);
-		return false;
 	}
 
 	@Override
