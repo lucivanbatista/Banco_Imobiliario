@@ -13,10 +13,10 @@ public class PrisonSpecialSquare extends SpecialSquare{
 	private Vertifies verify;
 	private int fee;
 	
-	public PrisonSpecialSquare(String name, int id, RepositoryLists lists) {
-		super(name, id, lists);
+	public PrisonSpecialSquare(String name, int id) {
+		super(name, id);
 		this.message = Message.getInstance();
-		this.lists = lists;
+		this.lists = RepositoryLists.getInstancia();
 		this.verify = new Vertifies();
 		this.fee = Constants.getInstancia().PRISON;
 	}

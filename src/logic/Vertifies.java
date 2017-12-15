@@ -6,13 +6,7 @@ import model.Player;
 
 public class Vertifies implements IVerifies {
 
-	@Override
-	public boolean verifyBalancePlayer(Player p) { // Verificar se jogar possui algum saldo
-		if(p.getBalance() <= 0){
-			return false;
-		}
-		return true;
-	}
+	
 
 	@Override
 	public boolean verifyBalancePlayerToPay(Player p, float price) {

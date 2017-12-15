@@ -9,10 +9,11 @@ public class TerrainComercialSquare extends ComercialSquare {
 	private Message message;
 	private Vertifies verify;
 	
-	public TerrainComercialSquare(String name, int price, int fee, int id) {
-		super(name, price, fee, id);
+	public TerrainComercialSquare(String name, int price, int id) {
+		super(name, price, id);
 		this.message = Message.getInstance();
 		this.verify = new Vertifies();
+		this.setFee(calcFee());
 	}
 	
 	@Override
@@ -38,5 +39,10 @@ public class TerrainComercialSquare extends ComercialSquare {
 				message.suaCasa();
 			}
 		}
+	}
+
+	@Override
+	public int calcFee() {
+		return this.getPrice() / 5; // Ou seja 20% do valor original
 	}
 }

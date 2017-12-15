@@ -11,12 +11,6 @@ public abstract class SpecialSquare extends Square{ // Sorte/Prisão/Lucro, essas
 		this.name = name;
 		this.id = id;
 	}
-	
-	public SpecialSquare(String name, int id, RepositoryLists lists) {
-		this.name = name;
-		this.id = id;
-		this.lists = lists;
-	}
 
 	public int getId() {
 		return id;

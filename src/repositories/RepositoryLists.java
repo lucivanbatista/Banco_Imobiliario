@@ -11,12 +11,20 @@ public class RepositoryLists {
 	private List<Player> playersAlive;
 	private List<Player> arrestedPlayers;
 	private List<Square> squares; // Todas as peças = tabuleiro
+	private static RepositoryLists listsUnique;
 	
-	public RepositoryLists() {
+	private RepositoryLists() {
 		this.players = new ArrayList<>();
 		this.playersAlive = new ArrayList<>();
 		this.arrestedPlayers = new ArrayList<>();
 		this.squares = new ArrayList<>();
+	}
+	
+	public static RepositoryLists getInstancia(){
+		if(listsUnique == null){
+			listsUnique = new RepositoryLists();
+		}
+		return listsUnique;
 	}
 	
 	public void addPlayer(Player p){

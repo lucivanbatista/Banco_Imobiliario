@@ -9,10 +9,11 @@ public class AssetsComercialSquare extends ComercialSquare{
 	private Message message;
 	private Vertifies verify;
 
-	public AssetsComercialSquare(String name, int price, int fee, int id) {
-		super(name, price, fee, id);
+	public AssetsComercialSquare(String name, int price, int id) {
+		super(name, price, id);
 		this.message = Message.getInstance();
 		this.verify = new Vertifies();
+		this.setFee(calcFee());
 	}
 
 	@Override
@@ -38,6 +39,11 @@ public class AssetsComercialSquare extends ComercialSquare{
 				message.suaCasa();
 			}
 		}
+	}
+
+	@Override
+	public int calcFee() {
+		return this.getPrice() / 4; // Ou seja 25% do valor original
 	}
 
 }
