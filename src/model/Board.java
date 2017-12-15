@@ -17,7 +17,7 @@ public class Board {
 	private List<Square> board;
 
 	public Board() {
-		board = RepositoryLists.getInstancia().getSquares();
+		board = RepositoryLists.getInstance().getSquares();
 		createBoard();
 	}
 

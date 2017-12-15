@@ -12,7 +12,7 @@ public class TerrainComercialSquare extends ComercialSquare {
 	public TerrainComercialSquare(String name, int price, int id) {
 		super(name, price, id);
 		this.message = Message.getInstance();
-		this.verify = new Vertifies();
+		this.verify = Vertifies.getInstance();
 		this.setFee(calcFee());
 	}
 	

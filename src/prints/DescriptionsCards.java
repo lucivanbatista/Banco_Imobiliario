@@ -10,53 +10,53 @@ public class DescriptionsCards {
 		
 	}
 	
-	public static DescriptionsCards getInstancia(){
+	public static DescriptionsCards getInstance(){
 		if(cardsUnique == null){
 			cardsUnique = new DescriptionsCards();
 		}
 		return cardsUnique;
 	}
 	
-	public List<String> getLucroDescriptions(){
-		List<String> lucros = new ArrayList<>();
-		lucros.add(l1());
-		lucros.add(l2());
-		lucros.add(l3());
-		lucros.add(l4());
-		lucros.add(l5());
-		lucros.add(l6());
-		lucros.add(l7());
-		lucros.add(l8());
-		lucros.add(l9());
-		lucros.add(l10());
-		lucros.add(l11());
-		lucros.add(l12());
-		lucros.add(l13());
-		lucros.add(l14());
-		lucros.add(l15());
+	public List<String> getProfitDescriptions(){
+		List<String> profit = new ArrayList<>();
+		profit.add(l1());
+		profit.add(l2());
+		profit.add(l3());
+		profit.add(l4());
+		profit.add(l5());
+		profit.add(l6());
+		profit.add(l7());
+		profit.add(l8());
+		profit.add(l9());
+		profit.add(l10());
+		profit.add(l11());
+		profit.add(l12());
+		profit.add(l13());
+		profit.add(l14());
+		profit.add(l15());
 		
-		return lucros;
+		return profit;
 	}
 	
-	public List<String> getPrejuizoDescription(){
-		List<String> prejuizos = new ArrayList<>();
-		prejuizos.add(p1());
-		prejuizos.add(p2());
-		prejuizos.add(p3());
-		prejuizos.add(p4());
-		prejuizos.add(p5());
-		prejuizos.add(p6());
-		prejuizos.add(p7());
-		prejuizos.add(p8());
-		prejuizos.add(p9());
-		prejuizos.add(p10());
-		prejuizos.add(p11());
-		prejuizos.add(p12());
-		prejuizos.add(p13());
-		prejuizos.add(p14());
-		prejuizos.add(p15());
+	public List<String> getLostDescription(){
+		List<String> lost = new ArrayList<>();
+		lost.add(p1());
+		lost.add(p2());
+		lost.add(p3());
+		lost.add(p4());
+		lost.add(p5());
+		lost.add(p6());
+		lost.add(p7());
+		lost.add(p8());
+		lost.add(p9());
+		lost.add(p10());
+		lost.add(p11());
+		lost.add(p12());
+		lost.add(p13());
+		lost.add(p14());
+		lost.add(p15());
 		
-		return prejuizos;
+		return lost;
 	}
 	
 	public String l1(){

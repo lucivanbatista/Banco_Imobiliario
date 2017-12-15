@@ -6,7 +6,18 @@ import model.Player;
 
 public class Vertifies implements IVerifies {
 
+	private static Vertifies verifyUnique;
 	
+	private Vertifies() {
+		
+	}
+	
+	public static Vertifies getInstance(){
+		if(verifyUnique == null){
+			verifyUnique = new Vertifies();
+		}
+		return verifyUnique;
+	}
 
 	@Override
 	public boolean verifyBalancePlayerToPay(Player p, float price) {

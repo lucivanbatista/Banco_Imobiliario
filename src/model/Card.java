@@ -1,19 +1,19 @@
 package model;
 
 public class Card {
-	private String descricao;
-	private int valor;
+	private String description;
+	private int value;
 	
 	public Card(String descricao, int valor) {
-		this.descricao = descricao;
-		this.valor = valor;
+		this.description = descricao;
+		this.value = valor;
 	}
 
 	public String getDescricao() {
-		return descricao;
+		return description;
 	}
 
 	public int getValor() {
-		return valor;
+		return value;
 	}
 }

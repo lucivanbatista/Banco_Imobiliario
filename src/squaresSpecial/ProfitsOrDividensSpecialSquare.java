@@ -12,7 +12,7 @@ public class ProfitsOrDividensSpecialSquare extends SpecialSquare{
 	public ProfitsOrDividensSpecialSquare(String name, int id) {
 		super(name, id);
 		this.message = Message.getInstance();
-		this.fee = Constants.getInstancia().PROFITS_OR_DIVIDENS;
+		this.fee = Constants.getInstance().PROFITS_OR_DIVIDENS;
 	}
 
 	@Override

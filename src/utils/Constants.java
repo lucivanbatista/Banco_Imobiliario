@@ -8,7 +8,7 @@ public class Constants {
 		
 	}
 	
-	public static Constants getInstancia(){
+	public static Constants getInstance(){
 		if(uniqueC == null){
 			uniqueC = new Constants();
 		}

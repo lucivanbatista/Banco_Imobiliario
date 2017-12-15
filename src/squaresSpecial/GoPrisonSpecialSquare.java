@@ -17,9 +17,9 @@ public class GoPrisonSpecialSquare extends SpecialSquare{
 	public GoPrisonSpecialSquare(String name, int id) {
 		super(name, id);
 		this.message = Message.getInstance();
-		this.lists = RepositoryLists.getInstancia();
-		this.verify = new Vertifies();
-		this.fee = Constants.getInstancia().PRISON;
+		this.lists = RepositoryLists.getInstance();
+		this.verify = Vertifies.getInstance();
+		this.fee = Constants.getInstance().PRISON;
 	}
 	
 	@Override

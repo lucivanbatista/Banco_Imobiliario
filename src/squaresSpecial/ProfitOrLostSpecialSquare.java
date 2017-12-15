@@ -25,7 +25,7 @@ public class ProfitOrLostSpecialSquare extends SpecialSquare{
 
 	@Override
 	public void activateEffect(Player p) {
-		this.idCard = randomWithRange(0, Constants.getInstancia().QTD_CARDS);
+		this.idCard = randomWithRange(0, Constants.getInstance().QTD_CARDS);
 		Card card = this.mapCards.get(this.idCard);
 		
 		if(card.getValor() > 0){ // Lucro
@@ -38,8 +38,8 @@ public class ProfitOrLostSpecialSquare extends SpecialSquare{
 	}
 	
 	public void createCards(){
-		List<String> lucros = DescriptionsCards.getInstancia().getLucroDescriptions();
-		List<String> prejuizos =  DescriptionsCards.getInstancia().getPrejuizoDescription();
+		List<String> lucros = DescriptionsCards.getInstance().getProfitDescriptions();
+		List<String> prejuizos =  DescriptionsCards.getInstance().getLostDescription();
 		int i = 0;
 		for(String s : lucros){
 			this.mapCards.put(i, new Card(s, randomWithRange(10, 150)));
@@ -55,7 +55,7 @@ public class ProfitOrLostSpecialSquare extends SpecialSquare{
 			System.out.println(c.getDescricao() + "; " + c.getValor());
 		}
 		
-		Constants.getInstancia().sizeQtd_Card(this.mapCards.size());
+		Constants.getInstance().sizeQtd_Card(this.mapCards.size());
 	}
 	
 	public int randomWithRange(int min, int max){

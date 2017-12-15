@@ -12,7 +12,7 @@ public class IncomeTaxSpecialSquare extends SpecialSquare {
 	public IncomeTaxSpecialSquare(String name, int id) {
 		super(name, id);
 		this.message = Message.getInstance();
-		this.fee = Constants.getInstancia().INCOME_TAX;
+		this.fee = Constants.getInstance().INCOME_TAX;
 	}
 
 	@Override

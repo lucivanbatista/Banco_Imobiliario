@@ -12,7 +12,7 @@ public class MatchBonusSpecialSquare extends SpecialSquare{
 	public MatchBonusSpecialSquare(String name, int id) {
 		super(name, id);
 		this.message = Message.getInstance();
-		this.fee = Constants.getInstancia().MATCH_BONUS;
+		this.fee = Constants.getInstance().MATCH_BONUS;
 	}
 
 	@Override

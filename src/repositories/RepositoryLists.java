@@ -20,7 +20,7 @@ public class RepositoryLists {
 		this.squares = new ArrayList<>();
 	}
 	
-	public static RepositoryLists getInstancia(){
+	public static RepositoryLists getInstance(){
 		if(listsUnique == null){
 			listsUnique = new RepositoryLists();
 		}
