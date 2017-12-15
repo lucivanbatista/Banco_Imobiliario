@@ -15,10 +15,18 @@ import squaresSpecial.ProfitsOrDividensSpecialSquare;
 
 public class Board {
 	private List<Square> board;
+	private static Board boardUnique;
 
-	public Board() {
+	private Board() {
 		board = RepositoryLists.getInstance().getSquares();
 		createBoard();
+	}
+	
+	public static Board getInstance(){
+		if(boardUnique == null){
+			boardUnique = new Board();
+		}
+		return boardUnique;
 	}
 
 	public void createBoard(){

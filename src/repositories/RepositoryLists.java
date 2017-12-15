@@ -41,6 +41,10 @@ public class RepositoryLists {
 	
 	//...
 	
+	public Square getSquareById(int idSquare){
+		return this.squares.get(idSquare);
+	}
+	
 	public void removePlayerAlive(Player p){
 		this.playersAlive.remove(p);
 	}

@@ -4,23 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import interfaces.IPlayerFee;
-import interfaces.IPlayerTerrain;
+import repositories.RepositoryLists;
+import utils.Constants;
+import interfaces.IPlayerComercialSquare;
 
-public class Player implements IPlayerFee, IPlayerTerrain{
-	//---
+public class Player implements IPlayerFee, IPlayerComercialSquare{
+	private static int count = 0;
 	private int id; // Identificador do Jogador
 	private String name; // Nome do Jogador
 	private Account account;
 	private List<ComercialSquare> myComercialSquares;
-	//---
 	private Square positionPlayer; // Em qual Casa o Jogador está
-	//---
 	
-	public Player(String name, Account account, Square positionPlayer) {
+	public Player(String name, Account account) {
 		this.name = name;
 		this.account = account;
 		this.myComercialSquares = new ArrayList<>();
-		this.positionPlayer = positionPlayer;
+		this.positionPlayer = RepositoryLists.getInstance().getSquareById(Constants.getInstance().ID_INICIAL_SQUARE); // Casa Inicial Partida
+		this.id = count;
+		count++;
 	}
 	
 	@Override
@@ -40,21 +42,20 @@ public class Player implements IPlayerFee, IPlayerTerrain{
 	}
 
 	@Override
-	public int getQtdTerrain() {
-		
-		return 0;
+	public int getQtdComercialSquare() {
+		return this.myComercialSquares.size();
 	}
 
 	@Override
-	public void buyTerrain(ComercialSquare c) {
+	public void buyComercialSquare(ComercialSquare c) {
 		c.setOwner(this);
 		c.setSold(true);
 		account.withdraw(c.getPrice());
-		addTerrain(c);
+		addComercialSquare(c);
 	}
 
 	@Override
-	public void addTerrain(ComercialSquare c) {
+	public void addComercialSquare(ComercialSquare c) {
 		this.myComercialSquares.add(c);
 	}
 	

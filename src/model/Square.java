@@ -26,9 +26,11 @@ public abstract class Square implements ISquare, IEffectSquare {
 	}
 
 	@Override
-	public void move(Player player, Square destination) { // OBSERVAÇÃO ISTO TEM QUE SER AJEITADO QUANDO COLOCAR A POSICAO (ATRIBUTO)
-		removePlayerFromSquare(player);
+	public void move(Player player, Square destination) {
+		Square source = player.getPositionPlayer();
+		player.setPositionPlayer(destination);
 		destination.addPlayerInSquare(player);
+		source.removePlayerFromSquare(player);
 	}
 
 	public int getId() {

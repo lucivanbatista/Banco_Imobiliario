@@ -22,7 +22,7 @@ public class TerrainComercialSquare extends ComercialSquare {
 			int answerPlayer = message.desejaComprarComercialTerrain();
 			if(answerPlayer == 1){
 				if(verify.verifyBalancePlayerToPay(p, this.getPrice())){ // Caso tenha saldo suficiente
-					p.buyTerrain(this);
+					p.buyComercialSquare(this);
 					message.playerComprouComercial(p, this);
 				}else{ // Caso não tenha saldo suficiente
 					message.naoFoiPossivelComprar();

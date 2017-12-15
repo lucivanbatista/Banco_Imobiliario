@@ -1,6 +1,5 @@
 package utils;
 
-
 public class Constants {
 	private static Constants uniqueC;
 	
@@ -14,6 +13,9 @@ public class Constants {
 		}
 		return uniqueC;
 	}
+	
+	// Relacionados aos Squares
+	public final int ID_INICIAL_SQUARE = 0;
 	
 	// Valores das Constantes das Special Square
 	public final int INCOME_TAX = 200;
